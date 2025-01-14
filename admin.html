@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./admin.css">
+    <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=52234&format=png&color=000000" type="image/x-icon">
+    <title>ADMIN APP</title>
+</head>
+<body>
+    <!--  -->
+    <div id="formContainer">
+        <input type="hidden" name="id" id="productID" placeholder="PRODUCT ID">
+        <input type="text" name="title" id="title" placeholder="PRODUCT TITLE">
+        <input type="text" name="category" id="category" placeholder="PRODUCT CATEGORY">
+        <input type="url" name="imageUrl" id="URL" placeholder="PRODUCT IMAGE URL">
+        <input type="text" name="price" id="price" placeholder="PRODUCT PRICE"> 
+        <input type="text" name="rate" id="rate" placeholder="PRODUCT RATING">
+        <input type="text" name="count" id="count" placeholder="PRODUCT COUNT">
+        <button  id="submitBtn" onclick="submitData()">SUBMIT DATA</button>
+    </div>
+    <!--  -->
+    <div id="productsContainers">
+        <h1>OUR PRODUCTS</h1>
+        <div id="itemContainer"></div>
+    </div>
+    <script src="./admin.js"></script>
+</body>
+</html>

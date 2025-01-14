@@ -1,0 +1,254 @@
+/* General reset and body styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, rgba(154, 225, 224, 0.8), rgba(218, 125, 231, 0.8)); /* Gradient with red and yellow */
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Form container (30% height of the screen) */
+#formContainer {
+    background: rgba(93, 189, 221, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 80vw;
+    height: 30vh; /* 30% of screen height */
+    text-align: center;
+    flex: 0 0 30%;
+}
+
+/* Styling the input fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+input:focus{
+    border: 1.5px solid #1d2a68;
+    border-radius: 2px 2px 2px rgb(17, 17, 71);
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Update Button: Orange/Yellow */
+#buttonContainer button.updateBtn {
+    background-color: #c9b243; /* Orange-Yellow color */
+}
+
+#buttonContainer button.updateBtn:hover {
+    background-color: #FF6F00; /* Darker orange for hover effect */
+}
+
+/* Delete Button: Red */
+#buttonContainer button.deleteBtn {
+    background-color: rgb(189, 81, 81); /* Red color */
+}
+
+#buttonContainer button.deleteBtn:hover {
+    background-color: #D32F2F; /* Darker red for hover effect */
+}
+
+/* Submit Button */
+#submitBtn {
+    background-color: #af8649; /* Amber for submit button */
+}
+
+#submitBtn:hover {
+    background-color: #FF5722; /* Darker amber for hover effect */
+}
+
+/* Products Container */
+#productsContainers {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Product Card Styling */
+#itemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* Ensures spacing between product containers */
+}
+
+/* Styling each product container */
+.productContainer {
+    background: rgba(125, 210, 231, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin: 15px;
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;  /* Equal container size */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  /* Ensures buttons are inside */
+    height:535px;  /* Equal height for product containers */
+    position: relative;
+}
+
+.productContainer:hover {
+    transform: scale(1.05);
+}
+
+#imageContainer img {
+    width: 80%;
+    height: 250px;/* Equal height for images */
+    border-radius: 8px;
+    object-fit: fill;
+}
+
+#productDetails {
+    margin-top: 10px;
+    font-size: 1rem;
+    flex-grow: 1;  /* Allows details section to take available space */
+}
+.productContainer:nth-child(even) {
+    background: linear-gradient(275deg,#F0F2F0, #374376); /* Purple gradient */
+  }
+
+  .productContainer:nth-child(odd) {
+    background: linear-gradient(135deg,#fffcdc, #d9a7c7); /* Teal gradient */
+  }
+
+/* Button Container */
+#buttonContainer {
+    position: absolute;  /* Keeps buttons within container */
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);  /* Center the buttons */
+    display: flex;
+    justify-content: space-between;
+    width: 80%;  /* Ensures buttons don't overflow */
+}
+
+#buttonContainer button {
+    width: 45%;  /* Buttons will be smaller and stay inside container */
+    margin: 5px 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #formContainer {
+        flex: 0 0 50%; /* 50% width for medium screens */
+    }
+    .productContainer {
+        max-width: 45%; /* Make products take up 45% width for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    #formContainer {
+        flex: 0 0 60%; /* 60% width for smaller screens */
+    }
+    .productContainer {
+        max-width: 90%; /* Make products take up 90% width for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #formContainer {
+        padding: 20px;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
+/* Animation to scroll products container from bottom to top */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation for scrolling up the products container */
+@keyframes scrollUp {
+    from {
+        transform: translateY(100%); /* Start below the viewport */
+        opacity: 0; /* Fully transparent */
+    }
+    to {
+        transform: translateY(0); /* End at its original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Apply the animation to the products container */
+#productsContainers {
+    animation: scrollUp 2s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+
+/* Stagger the animation for each product */
+.productContainer:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.productContainer:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.productContainer:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.productContainer:nth-child(4) {
+    animation-delay: 0.8s;
+}
+.productContainer:nth-child(5) {
+    animation-delay: 1s;
+}
+/* Repeat for as many products as you have, or use JavaScript for dynamic delays */
+#formContainer {
+   display: none;
+}
